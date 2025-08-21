@@ -12,7 +12,7 @@
             <h1 class="video-title">Video Player</h1>
             <div class="video-embed">
                 <div class="responsive-iframe">
-                    <iframe src="https://www.youtube.com/embed/fWhq4QksrmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe id="yt-iframe" src="https://www.youtube.com/embed/fWhq4QksrmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="video-info">
@@ -20,5 +20,20 @@
             </div>
         </div>
     </div>
+    <script>
+    // Attempt to lock orientation to landscape when iframe is fullscreen
+    document.addEventListener('fullscreenchange', function() {
+        const iframe = document.getElementById('yt-iframe');
+        if (document.fullscreenElement === iframe || document.fullscreenElement?.contains(iframe)) {
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(() => {});
+            }
+        } else {
+            if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
+            }
+        }
+    });
+    </script>
 </body>
 </html>
