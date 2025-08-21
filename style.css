@@ -1,0 +1,142 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Video container - centers everything */
+.video-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Video wrapper - contains title, video, and info */
+.video-wrapper {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Video title */
+.video-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Video element styling */
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    background-color: #000;
+    outline: none;
+}
+
+/* Custom video controls styling (works in some browsers) */
+video::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-pause-button {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+}
+
+/* Video info section */
+.video-info {
+    margin-top: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 2.0rem;
+    line-height: 1.6;
+}
+
+.video-info p {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .video-container {
+        padding: 10px;
+    }
+    
+    .video-wrapper {
+        padding: 20px;
+    }
+    
+    .video-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .video-info {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-title {
+        font-size: 1.5rem;
+    }
+    
+    .video-wrapper {
+        padding: 15px;
+    }
+}
+
+/* Loading animation for video */
+video {
+    transition: opacity 0.3s ease;
+}
+
+video[poster] {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px;
+}
+
+/* Hover effects */
+.video-wrapper:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+video:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+}
